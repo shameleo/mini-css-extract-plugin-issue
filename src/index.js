@@ -1,4 +1,5 @@
-import { test } from './shared/test.js';
 import './index.css';
+import test from './shared/test.js';
 
-console.log('ENTRY ', test);
+// Needed side effect to prevent optimizations
+console.log(test);

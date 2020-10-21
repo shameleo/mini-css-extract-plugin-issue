@@ -1,3 +1,3 @@
 import './test.css';
 
-export const test = 'TEST';
+export default 'TEST.JS MODULE';

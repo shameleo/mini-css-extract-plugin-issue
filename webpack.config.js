@@ -26,16 +26,19 @@ module.exports = () => ({
                 'shared': {
                     chunks: 'all',
                     enforce: true,
-                    test({resource}) {
-                        const isMatched = resource && resource.includes('shared');
-                        if (isMatched) {
-                            console.log('~ ~ ~: ', resource);
-                        }
+                    test(module) {
+                        // This is NOT correct
+                        const isMatched = module.resource && module.resource.includes('shared');
 
+                        // This is correct
+                        //const isMatched = module.nameForCondition().includes('shared');
+                        
+                        console.log('res : ', module.resource);
+                        console.log('name: ', module.nameForCondition());
+                    
                         return isMatched;
                     },
-                    //priority: 100,          // didn't help
-                    name: 'shared'
+                    name: 'shared-bundle'
                 }
             }
         },
